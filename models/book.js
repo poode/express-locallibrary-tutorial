@@ -9,6 +9,9 @@ const BookSchema = new Schema(
     summary: {type: String, required: true},
     isbn: {type: String, required: true},
     genre: [{type: Schema.Types.ObjectId, ref: 'Genre'}]
+  }, 
+  {
+    collection: 'books'
   }
 );
 

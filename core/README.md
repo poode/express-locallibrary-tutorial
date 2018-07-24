@@ -1,1 +1,1 @@
-# This folder contains important classes that are needed during app devlopment
+# This folder contains important classes that are needed during app devlopment and load important dependencies
