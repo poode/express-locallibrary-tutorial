@@ -9,20 +9,19 @@ const mongoose = require('mongoose');
 
 class MongoDB {
     constructor (dbURL) {
-         //Set up default mongoose connection
-        this.mongoDB = dbURL;
-
         //Get the default connection
-        mongoose.connect(this.mongoDB, { useNewUrlParser: true });
+        mongoose.connect(dbURL, { useNewUrlParser: true });
 
         // Get Mongoose to use the global promise library
         mongoose.Promise = global.Promise;
                 
         this.db = mongoose.connection;
-        console.log('connected to Database Now!');
         
         //Bind connection to error event (to get notification of connection errors)
         this.db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+        this.db.once('open', function callback () {
+            console.log('Conntected To Mongo Database');
+        });
     }
 }
 

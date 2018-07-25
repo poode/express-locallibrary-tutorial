@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-const Schema = mongoose.Schema;
+const { mongoose, Schema } = new (require('../core/Model'));
 
 const BookSchema = new Schema(
   {
