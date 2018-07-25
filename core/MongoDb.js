@@ -6,6 +6,7 @@
  * 
  */
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 class MongoDB {
     constructor (dbURL) {
@@ -20,7 +21,7 @@ class MongoDB {
         //Bind connection to error event (to get notification of connection errors)
         this.db.on('error', console.error.bind(console, 'MongoDB connection error:'));
         this.db.once('open', function callback () {
-            console.log('Conntected To Mongo Database');
+            if (JSON.parse(process.env.DEBUG)) console.log('Conntected To Mongo Database');
         });
     }
 }
